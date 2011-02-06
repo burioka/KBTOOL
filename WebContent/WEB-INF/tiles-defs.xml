@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="Windows-31J" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+
+<!--
+     This is a blank Tiles definition file with a commented example.
+-->
+
+<tiles-definitions>
+ 	<definition name="layoutTest" path="/WEB-INF/jsp/GA031/LayOut_GA031.jsp">
+        <put name="title"  value="記帳機能" />
+        <put name="header" value="/common/header.jsp" />
+        <put name="menu"   value="/WEB-INF/jsp/GA031/Calender_GA031F1.jsp" />
+        <put name="menu1"   value="/NUROKU_GA031.jsp" />
+        <put name="footer" value="/WEB-INF/jsp/GA031/Footter_GA031.jsp" />
+        <put name="body"   value="/WEB-INF/jsp/GA031/PostFm_GA031F2.jsp" />
+    </definition>
+    <!-- sample tiles definitions
+    
+
+    <definition name=".mainMenu" path="/common/layouts/vboxLayout.jsp" >
+        <putList name="list" >
+            <add value=".menu.links" />
+            <add value=".menu.taglib.references" />
+            <add value=".menu.printer.friendly" />
+            <add value=".menu.old.documents" />
+      </putList>
+    </definition>
+
+    <definition name="aPage" extends=".mainLayout">
+        <put name="title"  value="Another Title" />
+        <put name="body"   value=".aPage.body" />
+    </definition>
+
+    end samples -->
+
+
+</tiles-definitions>

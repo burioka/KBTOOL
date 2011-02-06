@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Context displayName="KBtool4 Samples" docBase="KBtool4" 
+	reloadable="true">
+	<Resource name="jdbc/KBtool" auth="Container"
+		type="javax.sql.DataSource" username="root" password="root"
+		driverClassName="org.gjt.mm.mysql.Driver"
+		url="jdbc:mysql://localhost/kibdb2?useUnicode=true&amp;characterEncoding=Windows-31J" maxActive="4" maxWait="5000" maxIdle="5"
+		validationQuery="SELECT count(*) FROM t_cntest" />
+</Context>
