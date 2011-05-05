@@ -23,7 +23,7 @@
 <form action=BB.jsp method="get" >
 	<input type="submit" value="レビュー" disabled>
 </form><br>
-<form action=TtleEntry_GA033.jsp method="get" >
+<form action=../GA033/TitleEntry.do method="get" >
 	<input type="submit" value="分類登録" >
 </form><br>
 <form action=CC.jsp method="get" >
@@ -32,7 +32,7 @@
 <form action=CC.jsp method="get" >
 	<input type="submit" value="管理" disabled>
 </form><br>
-<a href="Logout_GA101.jsp">ログアウト</a>
+<a href="../CA011/Logout.do">ログアウト</a>
 </center>
 </body>
 </html>

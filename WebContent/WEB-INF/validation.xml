@@ -75,7 +75,30 @@
               </var> 
             </field>
         </form>
-
+		<form name="GA033_TitlePostForm">
+            <field
+                property="titlename"
+                depends="required,minlength,maxlength">
+              <msg name="required" key="errors.empty"/>
+              <arg name="required" key="ID" position="0"/>
+              <msg name="minlength" key="errors.minlength"/>
+              <arg name="minlength" key="2" position="0" resource="false"/>
+              <msg name="maxlength" key="errors.maxlength"/>
+              <arg name="maxlength" key="8" position="0" resource="false"/>
+              <msg name="mask" key="errors.invalid"/>
+              <arg name="mask" key="string.type1" position="0"/>
+              <var>
+			  	<var-name>minlength</var-name>
+              	<var-value>2</var-value>
+              </var>
+              <var>
+			  	<var-name>maxlength</var-name>
+              	<var-value>8</var-value>
+              </var>   
+               
+            </field>
+ 
+        </form>
     </formset>
 
  
