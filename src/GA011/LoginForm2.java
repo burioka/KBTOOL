@@ -1,8 +1,8 @@
 package GA011;
 
-import org.apache.struts.validator.ValidatorForm;
+import org.apache.struts.action.ActionForm;
 
-public class LoginForm2 extends ValidatorForm {
+public class LoginForm2 extends ActionForm {
 
 	/**
 	 * 

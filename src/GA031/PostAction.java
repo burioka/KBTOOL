@@ -25,12 +25,12 @@ public class PostAction extends Action {
     	String[] price;
     	int      i_len = 0;
     	long I_UpCnt=0;
-        //ƒZƒbƒVƒ‡ƒ“î•ñ‚ğæ“¾
+        //ï¿½Zï¿½bï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ“¾
     	HttpSession  session = request.getSession(false);
     	if(session==null){
     	}else{
     		String   i_uid =    (String)session.getAttribute("S_UidSsn");
-	    	// Action‚ğForm‚ÉƒLƒƒƒXƒg
+	    	// Actionï¿½ï¿½Formï¿½ÉƒLï¿½ï¿½ï¿½Xï¿½g
 	    	PostForm PostForm = (PostForm) form;
 	    	
 	    	Tgtdate = PostForm.getTgtdate();
@@ -40,12 +40,12 @@ public class PostAction extends Action {
 	    	i_len = PostForm.getlen();
 	    	
 	    	if(i_len >= 1 ){
-				//ƒZƒbƒVƒ‡ƒ“Šm—§
+				//ï¿½Zï¿½bï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½mï¿½ï¿½
 				Context context = new InitialContext();
 				DataSource ds = (DataSource)context.lookup("java:comp/env/jdbc/KBtool");
 				Connection db = ds.getConnection();
 				
-	    		//‘ÎÛ”NŒ‚Ìƒf[ƒ^‚Ì‰Šú‰»
+	    		//ï¿½ÎÛ”Nï¿½ï¿½ï¿½Ìƒfï¿½[ï¿½^ï¿½Ìï¿½ï¿½ï¿½
 				String S_Delql ="";
 	    		S_Delql = "DELETE FROM t_purchase WHERE uid = ";
 				S_Delql = S_Delql + i_uid;
@@ -53,27 +53,16 @@ public class PostAction extends Action {
 		
 				PreparedStatement ps = db.prepareStatement(S_Delql);
 				int I_DlCnt = ps.executeUpdate();
-				//ƒZƒbƒVƒ‡ƒ“ƒNƒ[ƒY
+				//ï¿½Zï¿½bï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½[ï¿½Y
 				ps.close();
 	    		
 				for(int i=0;i<=i_len-1;i++){
 	    			
 					String S_Wsql = "";
 					S_Wsql = "INSERT INTO t_purchase VALUES(?,?,?,?,?,?,0,'','',0)";
-						//S_Wsql = "INSERT INTO t_purchase VALUES(" ;
-						//S_Wsql = S_Wsql + i_uid  + "," ;
-						//S_Wsql = S_Wsql + "'" + S_date  +"'" + "," ;
-						//S_Wsql = S_Wsql + i + "," ;
-						//S_Wsql = S_Wsql + S_Class1[i] + "," ;
-						//S_Wsql = S_Wsql + "'" + S_Name1[i] + "'" + ","  ;
-						//S_Wsql = S_Wsql + S_Price1[i] + ",";
-						//S_Wsql = S_Wsql + 0 + ",";
-						//S_Wsql = S_Wsql + "''" + ",";
-						//S_Wsql = S_Wsql + "''" + ",";
-						//S_Wsql = S_Wsql + 0 ;
-						//S_Wsql = S_Wsql + ")";taihi
+
 					ps = db.prepareStatement(S_Wsql);
-					//’l‚ÌƒZƒbƒg
+					//ï¿½lï¿½ÌƒZï¿½bï¿½g
 					ps.setString(1,i_uid);
 					ps.setString(2,Tgtdate);
 					ps.setInt(3,i);
@@ -85,12 +74,12 @@ public class PostAction extends Action {
 					I_UpCnt = I_UpCnt + ps.executeUpdate();
 					ps.close();
 	    		}
-				//ƒZƒbƒVƒ‡ƒ“ƒNƒ[ƒY
+				//ï¿½Zï¿½bï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½[ï¿½Y
 				db.close();
 			}
-	    	request.setAttribute("msg", "“o˜^Š®—¹");
+	    	request.setAttribute("msg", "ï¿½oï¿½^ï¿½ï¿½ï¿½ï¿½");
 		}
-	    // ActionForword‚Ì•Ô‹p
+	    // ActionForwordï¿½Ì•Ô‹p
     	return mapping.findForward("success");
     }
 }

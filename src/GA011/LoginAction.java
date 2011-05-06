@@ -22,20 +22,21 @@ public class LoginAction extends Action {
         throws Exception {
     	Integer I_NinshoFlg = 0;
     	String S_Wsql = "";
-        // ActionForm‚ğLoginForm‚ÉƒLƒƒƒXƒg
+    	String  cmessage = "IDã¨ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãŒä¸€è‡´ã—ã¾ã›ã‚“";
+        // ActionFormï¿½ï¿½LoginFormï¿½ÉƒLï¿½ï¿½ï¿½Xï¿½g
         LoginForm2 loginForm = (LoginForm2) form;
-        // ƒtƒH[ƒ€‚É“ü—Í‚³‚ê‚½ID‚ğæ“¾
+        // ï¿½tï¿½Hï¿½[ï¿½ï¿½ï¿½É“ï¿½Í‚ï¿½ï¿½ê‚½IDï¿½ï¿½ï¿½æ“¾
         String id = loginForm.getId();
-        // ƒtƒH[ƒ€‚É“ü—Í‚³‚ê‚½ƒpƒXƒ[ƒh‚ğæ“¾
+        // ï¿½tï¿½Hï¿½[ï¿½ï¿½ï¿½É“ï¿½Í‚ï¿½ï¿½ê‚½ï¿½pï¿½Xï¿½ï¿½ï¿½[ï¿½hï¿½ï¿½ï¿½æ“¾
         String password = loginForm.getPassword();
-    	//ƒZƒbƒVƒ‡ƒ“Šm—§
+    	//ï¿½Zï¿½bï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½mï¿½ï¿½
     	Context context = new InitialContext();
     	DataSource ds = (DataSource)context.lookup("java:comp/env/jdbc/KBtool");
     	Connection db = ds.getConnection();
     	S_Wsql = "SELECT uid,name , password,login,userclass FROM t_members WHERE login = " +  "'" + id + "'" ;
     	PreparedStatement ps = db.prepareStatement(S_Wsql);
     	ResultSet rs = ps.executeQuery(S_Wsql);
-    	//”FØŠJn
+    	//ï¿½Fï¿½ØŠJï¿½n
     	I_NinshoFlg = 0;
     	if(!(rs.isLast())){
     		while (rs.next()){
@@ -48,33 +49,29 @@ public class LoginAction extends Action {
     				session.setAttribute("S_NameSsn", rs.getString("name"));
     				session.setAttribute("S_UClsSsn", rs.getString("userclass"));
 
-    				// message‚Ìì¬
-			        String message = "Your ID is " + id + ". Password is " + password + ".‚è‚±‚ñ‚Ï‚¢‚é";
-			        // message‚ğrequestƒXƒR[ƒv‚É“o˜^
-			        request.setAttribute("message", message);
 			        I_NinshoFlg = 2;
     			}
     			else 
     			{
-    				String message = "ƒpƒXƒ[ƒh‚ªˆá‚¢‚Ü‚·";
+    				
     			    I_NinshoFlg = 1;
-    			    // message‚ğrequestƒXƒR[ƒv‚É“o˜^
-			        request.setAttribute("message", message);
+    			    // messageï¿½ï¿½requestï¿½Xï¿½Rï¿½[ï¿½vï¿½É“oï¿½^
+			        request.setAttribute("message", cmessage);
     			}
     		}
     	}
     	if(I_NinshoFlg == 0){
-			String message = "ID‚ªˆá‚¢‚Ü‚·";
+			String message = "mismatch2";
 		    I_NinshoFlg = 1;
-		    // message‚ğrequestƒXƒR[ƒv‚É“o˜^
-	        request.setAttribute("message", message);
+		    // messageï¿½ï¿½requestï¿½Xï¿½Rï¿½[ï¿½vï¿½É“oï¿½^
+	        request.setAttribute("message", cmessage);
 
     	}
-    	//DBƒZƒbƒVƒ‡ƒ“‚ÌƒNƒ[ƒY
+    	//DBï¿½Zï¿½bï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ÌƒNï¿½ï¿½ï¿½[ï¿½Y
     	rs.close();
     	ps.close();
     	db.close();
-        // ActionForword‚Ì•Ô‹p
+        // ActionForwordï¿½Ì•Ô‹p
     	if(I_NinshoFlg == 2){
     		return mapping.findForward("success");
     	}

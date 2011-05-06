@@ -75,7 +75,7 @@
               </var> 
             </field>
         </form>
-		<form name="GA033_TitlePostForm">
+        <form name="GA033_TitlePostForm">
             <field
                 property="titlename"
                 depends="required,minlength,maxlength">
@@ -98,7 +98,16 @@
                
             </field>
  
+        </form> 
+        <form name="GA031_PostForm">
+            <field
+                property="" indexedListProperty="price"
+                depends="ArrayInt">
+              <msg name="ArrayInt" key="errors.invalid"/>
+             </field>
+ 
         </form>
+
     </formset>
 
  

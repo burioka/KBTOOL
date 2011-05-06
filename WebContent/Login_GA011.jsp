@@ -13,8 +13,10 @@ if ( Msg==null || (Msg.length() == 0)){
 %>
 <html:form action="GA011/login2.do" method="post">
 <table border="1">
-	<tr><td>ログイン名:</td><td><html:text property="id" size = "20" /></td><td><html:errors property="id" /></td></tr>
-	<tr><td>パスワード:</td><td><html:text property="password" size = "20" /></td><td><html:errors property="password" /></td></tr>
+	<tr><td>ログイン名:</td><td><html:text property="id"  size = "20"  errorStyle="background-color:red" /></td>
+	<td><html:errors property="id" /></td></tr>
+	<tr><td>パスワード:</td><td><html:text property="password" size = "20"  errorStyle="background-color:red" /></td>
+	<td><html:errors property="password" /></td></tr>
 </table>
 <html:submit value="ログイン" />
 </html:form>
@@ -22,7 +24,8 @@ if ( Msg==null || (Msg.length() == 0)){
 <p>
 <!--<a href="./">メニューに戻る</a>-->
 </p>
-	
+
+<p>powered by FujiokaShinya</p>	
 	
 <p>
                </p>

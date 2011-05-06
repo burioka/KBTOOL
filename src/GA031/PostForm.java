@@ -1,6 +1,9 @@
 package GA031;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionMapping;
 
 public class PostForm extends ActionForm {
     /**
@@ -12,7 +15,13 @@ public class PostForm extends ActionForm {
 	private String[] sclass = null;
 	private String[] price = null;
 	private int i_len = 0;
-		
+	public void reset(ActionMapping mapping, HttpServletRequest request) {
+		super.reset(mapping, request);
+        try {
+                request.setCharacterEncoding("Shift_JIS");
+        }
+        catch(java.io.IOException ex) {}
+    }
     public void setTgtdate(String tgtdate){
         this.tgtdate = tgtdate;
     }
